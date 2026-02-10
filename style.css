@@ -1,0 +1,204 @@
+/* --- RESET & VARIABEL DASAR --- */
+:root {
+    /* Menggunakan variabel agar mudah mengganti tema warna di satu tempat */
+    --sky-blue: #00a8ff;       /* Warna biru langit utama */
+    --soft-blue: #e3f2fd;      /* Warna biru sangat muda untuk background */
+    --deep-blue: #0077b6;      /* Warna biru tua untuk hover/aksen */
+    --dark-text: #2d3436;      /* Warna teks abu gelap agar elegan */
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Efek bayangan halus */
+    --transition: 0.3s ease;   /* Kecepatan animasi transisi */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    /* Menjaga ukuran elemen tetap konsisten */
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins sesuai link di HTML */
+}
+
+html {
+    scroll-behavior: smooth;   /* Efek scroll halus saat klik menu navigasi */
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-text);
+    line-height: 1.6;          /* Memberi ruang antar baris teks */
+}
+
+/* --- NAVIGASI --- */
+header {
+    background-color: var(--white);
+    padding: 15px 8%;
+    display: flex;             /* Mengaktifkan mode flex */
+    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    align-items: center;       /* Rata tengah secara vertikal */
+    box-shadow: var(--shadow); /* Garis bayangan di bawah header */
+    position: fixed;           /* Header tetap menempel di atas saat scroll */
+    width: 100%;
+    top: 0;
+    z-index: 1000;             /* Memastikan header selalu di lapisan paling atas */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.logo span {
+    color: var(--sky-blue);    /* Memberi warna berbeda pada teks 'Satu' */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;          /* Menghilangkan titik-titik daftar */
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;     /* Menghilangkan garis bawah link */
+    color: var(--dark-text);
+    font-weight: 400;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--sky-blue);    /* Berubah warna saat kursor menempel */
+}
+
+/* --- HERO SECTION --- */
+.hero-kelompok {
+    height: 100vh;             /* Tinggi satu layar penuh */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('img/bg-hero.jpg') center/cover; /* Background gambar dengan lapisan gelap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-overlay h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.btn-cek {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--sky-blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 30px;       /* Membuat tombol lonjong/rounded */
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.btn-cek:hover {
+    background-color: var(--deep-blue);
+    transform: translateY(-3px); /* Efek melompat sedikit ke atas */
+}
+
+/* --- CONTAINER UMUM --- */
+.section-container {
+    padding: 100px 8%;         /* Jarak atas-bawah dan kanan-kiri */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;            /* Konten tetap di tengah layar */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: var(--deep-blue);
+}
+
+.bg-light { background-color: var(--soft-blue); }
+.bg-white { background-color: var(--white); }
+
+/* --- ANGGOTA KELOMPOK (GRID) --- */
+.kelompok-grid {
+    display: grid;             /* Menggunakan sistem Grid */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsif otomatis */
+    gap: 25px;                 /* Jarak antar kartu */
+}
+
+.kelompok-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;          /* Potong gambar jika keluar sudut melengkung */
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.kelompok-card:hover {
+    transform: scale(1.05);    /* Membesar sedikit saat disentuh kursor */
+}
+
+.card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;         /* Gambar akan mengisi kotak tanpa gepeng */
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    font-size: 1.2rem;
+    color: var(--deep-blue);
+}
+
+/* --- LAPORAN & VIDEO --- */
+.content-wrapper, .video-wrapper {
+    display: flex;
+    flex-direction: column;    /* Menyusun konten secara vertikal */
+    align-items: center;
+    gap: 20px;
+}
+
+.pdf-container, .video-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;             /* Tinggi area PDF/Video */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background-color: #000;    /* Warna dasar sebelum video dimuat */
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--dark-text);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* --- RESPONSIVE (TAMPILAN HP) --- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;         /* Sembunyikan menu di HP untuk kesederhanaan */
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2.5rem;
+    }
+    
+    .pdf-container, .video-container {
+        height: 300px;         /* Perkecil tinggi di layar HP */
+    }
+}
